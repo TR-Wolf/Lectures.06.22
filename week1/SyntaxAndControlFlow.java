@@ -3,7 +3,8 @@ package week1;
 public class SyntaxAndControlFlow {
     public static void main(String[] args) {
         //Hello World
-
+        System.out.println("Hello World!");
+        
         //String Message
         
         //Divying up cookies between a class of students.

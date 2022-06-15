@@ -6,7 +6,7 @@ public class UserInteraction {
     //Main
     public static void main(String[] args) {
         //Getting and Using Input
-        printHeader(); //Pre-Written Function to print a header to the screen.
+        printHeader();
 
         //Get in a loop.
 
@@ -27,9 +27,10 @@ public class UserInteraction {
     }
     
 
-
     /*
+     *
      * Pre-Written Code 
+     * 
      */
     public static void printHeader(){
         System.out.println("+---~~~  Shape Printer Program!  ~~~---+");
@@ -74,7 +75,7 @@ public class UserInteraction {
     }
     
     //Prints a Triangle
-    public static String printTriangle(int size){
+    public static void printTriangle(int size){
         String triangle = "";
         for (int i = 0; i < size; i++){
             for (int j = i; j < size; j++) {
@@ -101,7 +102,7 @@ public class UserInteraction {
     }
     
     //Prints a Square
-    public static Void printSquare(int size){
+    public static void printSquare(int size){
         String square = "";
         for (int i = 0; i < size; i++){
             for (int j = 0; j < size; j++) {
