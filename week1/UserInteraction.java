@@ -6,12 +6,20 @@ public class UserInteraction {
     //Main
     public static void main(String[] args) {
         //Getting and Using Input
+        printHeader(); //Pre-Written Function to print a header to the screen.
+
+        //Get in a loop.
+
+        //Using If's to solve problem
+
+        //Using Switch
 
 
         //Exception Handling
     }
 
     //Get Input from User (Method)
+    //Only allow for choices 1, 2, 3, or 4.
     int getIntegerFromUser(){
         int returnValue = 0;
 
@@ -23,8 +31,25 @@ public class UserInteraction {
     /*
      * Pre-Written Code 
      */
+    public static void printHeader(){
+        System.out.println("+---~~~  Shape Printer Program!  ~~~---+");
+        System.out.println("| Which shape would you like to print? |");
+        printOptions();
+        
+    }
+    
+    public static void printOptions(){
+        System.out.println("+---~~~+---{Options}-------------~~~---+");
+        System.out.println("|  1.  | Print a Square.               |");
+        System.out.println("|  2.  | Print a Triangle.             |");
+        System.out.println("|  3.  | Print a Circle.               |");
+        System.out.println("|  4.  | Exit Program.                 |");
+        System.out.println("+---~~~+-------------------------~~~---+");
+        System.out.print("| Enter your Choice here : ");
+    }
+
     //Prints a Circle
-    public static String printCircle(int isz){
+    public static void printCircle(int isz){
         String circle = "";
         double radius = (double)isz;
         isz = isz * 2 + 2;
@@ -45,7 +70,7 @@ public class UserInteraction {
                 }
             }
         }
-        return circle;
+        System.out.println(circle);
     }
     
     //Prints a Triangle
@@ -72,11 +97,11 @@ public class UserInteraction {
                 }
             }
         }
-        return triangle;
+        System.out.println(triangle);
     }
     
     //Prints a Square
-    public static String printSquare(int size){
+    public static Void printSquare(int size){
         String square = "";
         for (int i = 0; i < size; i++){
             for (int j = 0; j < size; j++) {
@@ -99,6 +124,6 @@ public class UserInteraction {
                 }
             }
         }
-        return square;
+        System.out.println(square);
     }
 }
