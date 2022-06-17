@@ -59,7 +59,26 @@ public class Runner {
 
 
         //What can we do with these objects?
+        
+
+        //Check if a student is in a class (quick example)
+        //In class example
+        // students = classroom.getStudents();
+        // //Grab a random student from our class room
+        // Student randomStudent = students[Math.floor(Math.random()*(students.length))];
+        // if (isStudentInClass(randomStudent, classroom)){
+        //     System.out.println("Student:" + randomStudent.getFname() +" is in our class!");
+        // } else {
+        //     System.out.println("Student:" + randomStudent.getFname() +" is not in our class. :(");
+        // }
+
         //Pair Students into groups
         //Student[] groups = groupStudents(10);
+    }
+
+    public static boolean isStudentInClass(Student student, Classroom classroom) {
+        boolean isInClass = false;
+
+        return isInClass;
     }
 }
