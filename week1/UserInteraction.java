@@ -1,45 +1,98 @@
 package week1;
 
-import javax.sound.sampled.SourceDataLine;
+import java.util.Scanner;
 
 public class UserInteraction {
-    //Main
+    // Main
     public static void main(String[] args) {
-        //Getting and Using Input
-        printHeader();
+        // Prompting for input
 
-        //Get in a loop.
+        // Getting input
 
-        //Using If's to solve problem
+        try (Scanner scanner = new Scanner(System.in);) {
+            while (true) {
+                int input = 0;
+                int size = 0;
+                printHeader();
+                String inputString = scanner.nextLine();
+                input = input(inputString);
+                System.out.print("What size would you like? (answer 1 to 10)");
+                inputString = scanner.nextLine();
+                size = input(inputString);
+                // Using If's to solve problem
 
-        //Using Switch
+                // if (input == 1) {
+                // printSquare(5);
+                // } else if (input == 2) {
+                // printTriangle(5);
+                // } else if (input == 3) {
+                // printCircle(5);
+                // } else {
+                // return;
+                // }
 
+                // Using Switch
+                switch (input) {
+                    case 1:
+                        printSquare(size);
+                        break;
+                    case 2:
+                        printTriangle(size);
+                        break;
+                    case 3:
+                        printCircle(size);
+                        break;
+                    case 4:
+                        System.out.println("Thanks, Bye!");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("You are bad at typing numbers 1 to 4");
+                        break;
+                }
 
-        //Exception Handling
+            }
+            // Exception Handling
+
+            // Closing the resource
+
+            // Try-with-resources
+
+            // Refactor: Getting input in a loop.
+        }
     }
 
-    //Get Input from User (Method)
-    //Only allow for choices 1, 2, 3, or 4.
-    int getIntegerFromUser(){
+    private static int input(String sampleString) {
+        try {
+            return Integer.parseInt(sampleString);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+
+    // Get Input from User (Method)
+    // Only allow for choices 1, 2, 3, or 4.
+    private static int getIntegerFromUser() {
         int returnValue = 0;
 
         return returnValue;
     }
-    
 
     /*
      *
-     * Pre-Written Code 
+     * Pre-Written Code
      * 
      */
-    public static void printHeader(){
+    public static void printHeader() {
         System.out.println("+---~~~  Shape Printer Program!  ~~~---+");
         System.out.println("| Which shape would you like to print? |");
         printOptions();
-        
+
     }
-    
-    public static void printOptions(){
+
+    public static void printOptions() {
         System.out.println("+---~~~+---{Options}-------------~~~---+");
         System.out.println("|  1.  | Print a Square.               |");
         System.out.println("|  2.  | Print a Triangle.             |");
@@ -49,40 +102,40 @@ public class UserInteraction {
         System.out.print("| Enter your Choice here : ");
     }
 
-    //Prints a Circle
-    public static void printCircle(int isz){
+    // Prints a Circle
+    public static void printCircle(int isz) {
         String circle = "";
-        double radius = (double)isz;
+        double radius = (double) isz;
         isz = isz * 2 + 2;
-        for (int i =(-1) * isz / 2; i < (isz / 2) + 1; i++){
+        for (int i = (-1) * isz / 2; i < (isz / 2) + 1; i++) {
             for (int j = (-1) * isz / 2; j < (isz / 2) + 1; j++) {
-                double thisRad = Math.sqrt(i*i + j*j);
+                double thisRad = Math.sqrt(i * i + j * j);
                 if (thisRad > radius) {
                     circle += "`.";
                 } else {
-                    if (radius - thisRad < 1.2){
+                    if (radius - thisRad < 1.2) {
                         circle += "%%";
                     } else {
                         circle += "##";
                     }
                 }
-                if (j == isz/2){
+                if (j == isz / 2) {
                     circle += "\n";
                 }
             }
         }
         System.out.println(circle);
     }
-    
-    //Prints a Triangle
-    public static void printTriangle(int size){
+
+    // Prints a Triangle
+    public static void printTriangle(int size) {
         String triangle = "";
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             for (int j = i; j < size; j++) {
-                if (i == 0 || i == size - 1){
-                    if (j == 0){
+                if (i == 0 || i == size - 1) {
+                    if (j == 0) {
                         triangle += "+";
-                    } else if (j == size - 1){
+                    } else if (j == size - 1) {
                         triangle += "+\n";
                     } else {
                         triangle += "-";
@@ -100,16 +153,16 @@ public class UserInteraction {
         }
         System.out.println(triangle);
     }
-    
-    //Prints a Square
-    public static void printSquare(int size){
+
+    // Prints a Square
+    public static void printSquare(int size) {
         String square = "";
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (i == 0 || i == size - 1){
-                    if (j == 0){
+                if (i == 0 || i == size - 1) {
+                    if (j == 0) {
                         square += "+";
-                    } else if (j == size - 1){
+                    } else if (j == size - 1) {
                         square += "+\n";
                     } else {
                         square += "-";
