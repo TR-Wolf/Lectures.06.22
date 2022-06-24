@@ -1,4 +1,4 @@
-package week2;
+
 
 public class InterfacesCode {
     public static void main(String[] args) {
