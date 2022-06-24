@@ -1,5 +1,3 @@
-package week2;
-
 public class AbstractClasses {
     public static void main(String[] args) {
         // Make an AbstractBankAccount
