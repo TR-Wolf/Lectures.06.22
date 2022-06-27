@@ -28,7 +28,5 @@ public class Person {
 
     public void setLname(String lname) {
         this.lname = lname;
-    }
-
-    
+    }    
 }
