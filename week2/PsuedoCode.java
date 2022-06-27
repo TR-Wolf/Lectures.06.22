@@ -1,14 +1,11 @@
 import java.util.Scanner;
 
-import javax.sound.sampled.SourceDataLine;
-import javax.swing.SpinnerDateModel;
-
 public class PsuedoCode {
     //Main method
     public static void main(String[] args) {
         //Example One, Trivia Game
         Scanner scanner = new Scanner(System.in);
-        triviaGame(scanner);    
+        //triviaGame(scanner);    
         
         //Example Two, prime numbers;
 
@@ -39,21 +36,36 @@ public class PsuedoCode {
     //At the end of the game the user is shown how many points they recieved.
     private static void triviaGame(Scanner sc) {
         //Define the questions (String)
+        String[] questions = {"Is the sky blue", "Are you a person?", "Are you a dog?"};
 
         //Define the answers (char)
-
+        char[] answers = {'y', 'y', 'n'};
+        
         //Define a counter for points.
+        int counter = 0;
 
         //Tell the user about the game
+        printHeader();
 
         //For each question, ask the user a question
+        //for (String question : questions) {
+        for (int i = 0; i < questions.length; i++) {
             //Ask the user a question
+            String question = questions[i];
+            char correctAnswer = answers[i];
+            printQuestion(question, i);
 
             //get an answer from the user
+            char answer = getAnswerFromUser(sc);
 
             //if the user has the correct answer, give them a point
+            if (answer == correctAnswer){
+                counter++;
+            }
         
+        }
         //Show the user how many points they recieved.
+        System.out.println("You recieved " + counter + " points!");
             
 
     }   
@@ -73,7 +85,7 @@ public class PsuedoCode {
         System.out.print("+~~~~--- yes, or no: ");
     }
     public static char getAnswerFromUser(Scanner sc){        
-        //Create a variable for a scanner, and for a user character.
+        //Create a variable a user character.
         char answerChar = 'x';
 
         boolean incorrectInput = true;
@@ -81,12 +93,21 @@ public class PsuedoCode {
         while (incorrectInput) {
             //Get a line from the user, take it to lower case, and take the first character.
             String answerString = sc.nextLine().toLowerCase();
-            answerChar = answerString.charAt(0);
-            //if the answer character is not a y or an n, then our input is incorrect
-            incorrectInput = (! (answerChar == 'y' || answerChar == 'n'));
-            if (incorrectInput) {
+            //342 "" " "
+            if (answerString.equals("")){
                 System.out.println("You may only answer 'y' or 'n' try again.");
                 System.out.print("+~~~~--- yes, or no: ");
+            } else {
+                answerChar = answerString.charAt(0);
+                System.out.println("I found the char \'" + answerChar +"\'");
+                //!( y == y || y != n) === False = we have incorrect input
+                //!(' ' == 'y' || ' ' == n)
+                //if the answer character is not a y or an n, then our input is incorrect
+                incorrectInput = (! (answerChar == 'y' || answerChar == 'n'));
+                if (incorrectInput) {
+                    System.out.println("You may only answer 'y' or 'n' try again.");
+                    System.out.print("+~~~~--- yes, or no: ");
+                }
             }
         }
         return answerChar;
@@ -95,6 +116,7 @@ public class PsuedoCode {
     //*******************EXAMPLE TWO Prime Numbers ***************************/
     //I want a program that will tell me the first N prime numbers.
     //N is any number between 1-100, so don't worry about being too efficient.
+    //1 2 3 5 7 11 13
     public static int[] primeNumbers(int n) {
         int[] primeNumbers = new int[n];
         
@@ -108,10 +130,47 @@ public class PsuedoCode {
             }
             return primeNumbers;
         }
+
         //Should we loop,While or For (We can solve it with both, poll students for preffered)
         //Volunteers to write psuedocode??
 
+        // n == 5
+        // 1 2 3 5 7 9 11
+        //array pos  0 1 2
+        //           1 2 3 5 7 11
+        //define counter to 2
+        //define current number to 3.
+        //while we havent found all n primes
+            //is this current number a prime
+                //if so then add it to the array
+                //and increment the counter
+            //current number += 2;
+
+
+        //Solution using a while loop
+
+          
+
+        //Solution using a for loop
+        //initialize counter for each candidate prime
+
+        //For each ... number in N
+
+
         return primeNumbers;
+    }
+
+    public static boolean isPrime(int number){
+        boolean isPrime = true;
+
+
+        //6, 5 4 3 2 1, if for any of them 6%N == 0, then isPrime is false
+        
+        //for everry mini number less than number
+        //is number mod mini number 0
+        // if so, is prime is false.
+
+        return isPrime;
     }
 
     public static void printPrimes(int[] primes){
@@ -133,5 +192,7 @@ public class PsuedoCode {
 
         return vowellessString;
     }
+
+    //************************** EXAMPLE FOUR ... *****************************//
 
 }
