@@ -1,4 +1,8 @@
+// package week2;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -12,23 +16,125 @@ public class ArraysAndArrayList {
     public static void main(String[] args) {
         String[] interns = {"Ella", "Stephen", "Tyler", "Tristan", "Alyssa"};
         // Access
+        String oneOfThem = interns[0];
+
         // Set
+        interns[0] = "something different";
         // Perform action on each
+        for (String intern : interns) {
+            System.out.println(intern);
+        }
+
         // Print
         // Add new element
+        // interns = new String[6];
+        // for(int i = 0; i < interns.length; i++) {
+        //     // interns[i]
+        // }
+
         // Complain loudly about inconvenience
+
         // Refactor to use ArrayList<String>
+        List<String> internList = new ArrayList<>(); //<String> is a type parameter
+        for (String intern : interns) {
+            internList.add(intern);
+        }
+    
+        System.out.println(interns);
+        System.out.println(internList);
+
+        Intern conner = new Intern("Conner Gleason", 30);
+        Intern jay = new Intern("Jay Mansmann", 30);
+        Intern sabrina = new Intern("Sabrina C", 29);
+        List<Intern> internObjectList = new ArrayList<>();
+        internObjectList.add(conner);
+        internObjectList.add(jay);
+        internObjectList.add(sabrina);
+        // System.out.println(internObjectList);
+        // System.out.println(sabrina);
+        // System.out.println(sabrina.greeting());
+        // System.out.println(conner.greeting());
+        // System.out.println(conner.getAge() + sabrina.getAge());
+
         // Access
+        // System.out.println( internObjectList.get(0));
         // Set
+        internObjectList.set(0, new Intern("Abdella", 22));
         // Perform action on each
+        internObjectList.add(null);
+        for (Intern intern : internObjectList) {
+            System.out.println(intern);
+        }
         // Add new element
+        internObjectList.add(new Intern("Paxton", 23));
         // Remove element
+        internObjectList.remove(sabrina);
+        System.out.println(internObjectList); // Abdella, Jay, Paxton, null
         // Check if list contains an element
+        boolean isHeThere = internObjectList.contains(new Intern("Paxton", 23));
+        System.out.println(conner.equals(new Intern("Conner Gleason", 31)));
+        System.out.println(isHeThere);
         // Clear list
+        internObjectList.clear();
+        System.out.println(internObjectList);
         // isEmpty
+        System.out.println(internObjectList.isEmpty());
+        
         // Celebrate
     }
 }  
+
+class Intern {
+    private String name;
+    private int age;
+    
+    public Intern(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public String greeting() {
+        return "Hi I'm " + name;
+    }
+    @Override
+    public String toString() {
+        return "Intern [age=" + age + ", name=" + name + "]";
+    }
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Intern other = (Intern) obj;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
+    }
+    
+
+
+    
+    
+    
+}
 
 /**
  * Goals
@@ -37,11 +143,10 @@ public class ArraysAndArrayList {
  */
 class SimpleHashMapPractice {
     // Inspired by a true story
-    private Map<String, String> computerToDeveloperMap;
+    public Map<String, String> computerToDeveloperMap;
     public SimpleHashMapPractice() {
         this.computerToDeveloperMap = new HashMap<>();
         computerToDeveloperMap.put("C123", "Jay");
-        computerToDeveloperMap.put("C124", "JaVonne");
         computerToDeveloperMap.put("C124", "JaVonne");
         computerToDeveloperMap.put("C125", "Joe");
         computerToDeveloperMap.put("C126", "Ali");
@@ -54,7 +159,9 @@ class SimpleHashMapPractice {
             String computerThatLockedDevDatabase = scanner.nextLine();
             System.out.println("The problematic computer is " + computerThatLockedDevDatabase);
             // How do I use my map to find the problematic human?
-            System.out.println("The problematic human is ");
+            SimpleHashMapPractice practice = new SimpleHashMapPractice();
+            String human = practice.computerToDeveloperMap.get(computerThatLockedDevDatabase);
+            System.out.println("The problematic human is " + human);
 
         }
 
