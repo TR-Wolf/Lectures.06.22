@@ -1,4 +1,4 @@
-package week2;
+// package week2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +29,7 @@ public class ArraysAndArrayList {
         // Clear list
         // isEmpty
         // Celebrate
+        // Move to Maps
     }
 }  
 

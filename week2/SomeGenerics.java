@@ -1,4 +1,4 @@
-package week2;
+// package week2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +17,9 @@ public class SomeGenerics {
         // Java 1.4 - before generics
         List list = new ArrayList();
         list.add("HI");
+        System.out.println(list);
+        // list.get(0). // what methods are available?
+        // How do I make Java know list.get(0) is a String?
         // What else can I add to this list?
 
         // Java 1.5+
@@ -27,8 +30,10 @@ public class SomeGenerics {
         // Let's make a CounterService
         // Given a List of whatever,
         // return a map for which each key is an element from the list and the value is the number of times that element appears in the list.
-        CounterServiceSolution solution = new CounterServiceSolution();
-        System.out.println(solution.toMap(Arrays.asList(1, 2, 3, 3)));
+        CounterServiceSolution sampleCounter = new CounterServiceSolution();
+        List<String> stringList = Arrays.asList("A", "B", "C", "B");
+        Map<String, Integer> result = sampleCounter.toMap(stringList);
+        System.out.println(result);
         // Output: {A=1, B=2, C=1}
     }
 }
