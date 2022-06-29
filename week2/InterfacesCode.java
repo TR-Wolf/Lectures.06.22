@@ -3,7 +3,7 @@
 public class InterfacesCode {
     public static void main(String[] args) {
         OrderRepository orderRepository = new SQLOrderRepository();
-        CustomerAlertService customerAlertService = null; // TODO
+        CustomerAlertService customerAlertService = null;//new TextAlertService() or new EmailAlertService(); // TODO
         OrderService orderService = new OrderService(orderRepository, customerAlertService);
         orderService.createOrder(new CreateOrderDTO());
     }
