@@ -8,7 +8,7 @@ public class MapExample {
         //    3:     Thomas
         //    2:     Jay
         // }
-        HashMap<int, String[]> students = new HashMap<>();
+        HashMap<String, String[]> students = new HashMap<>();
         String[] dermatologists = {"Thomas", "Jay", "A real doctor"};
         students.put("Dermatology", dermatologists);
         System.out.println(students.get("Dermatology")[2]);
