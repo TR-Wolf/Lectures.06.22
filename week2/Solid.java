@@ -1,3 +1,5 @@
+package week2;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +10,15 @@ import java.util.List;
 
 /*public class*/
 public class Solid {
+    private int x;
     public static void main(String[] args) {
         s();
         o();
         l();
         i();
         d();
+        g = 5;
+        otherExamples();
     }
 
     //Single Responsibility
@@ -117,7 +122,7 @@ public class Solid {
 
     //other examples
     public static void otherExamples () {
-        //Inner classes: Velocity Example
+        //++~~*~*~~ Inner classes: Velocity Example ~~*~*~~++
         List<Velocity> speeds = new ArrayList<>();
         int time = 0;
         speeds.add(new Velocity(0.5, 2.3, 4.2, time++));
@@ -126,11 +131,57 @@ public class Solid {
 
         double acceleration = calculateAcceleration(speeds);
 
+        //++~~*~*~~  Enumerators ~~*~*~~++
+        GameMode mode = GameMode.NONE;
+        int userChoice = getChoiceFromUser();
+        switch (userChoice) {
+            case 1:
+                mode = GameMode.EASY;
+            break;
+            case 2:
+                mode = GameMode.MEDIUM;
+            break;
+            case 3:
+                mode = GameMode.HARD;
+            break;
+            case 4:
+                System.out.println("Thanks for playing");
+            break;
+            default:
+                System.out.println("Invalid input, try again.");
+            break;
+        }
+        int userGuess = 8;
+        int systemChoice = 9;
+        boolean win = false;
+        //Who wins
+        switch (mode) {
+            case EASY:
+                if (userGuess >= systemChoice) {
+                    win = true;
+                }
+            break;
+            case MEDIUM:
+                if (userGuess > systemChoice) {
+                    win = true;
+                }
+            break;
+            case HARD:
+                if (userGuess == systemChoice) {
+                    win = true;
+                }
+            break;
+            default:
+                System.out.println("You shouldn't be here, you broke the game!");
+            break;
+        }
+        //++~~*~*~~  packages  ~~*~*~~++
 
+        //++~~*~*~~  access modifiers  ~~*~*~~++
     }
     
     //inner class
-    static class Velocity {
+    public static class Velocity {
         double x;
         double y;
         double z;
@@ -139,11 +190,20 @@ public class Solid {
             x = a;
             y = b;
             x = c;
+            this.timeFrame = timeFrame;
         }
     }
 
     private static double calculateAcceleration(List<Solid.Velocity> speeds) {
         return 2.0;
+    }
+    
+    //Enums
+    public enum GameMode {
+        EASY, MEDIUM, HARD, NONE;
+    }
+    static int getChoiceFromUser(){
+        return 1;
     }
 
 
@@ -228,9 +288,13 @@ public class Solid {
             return launchers;
         }
     }
+    static class coneRadar extends SingleResponsibilityRadar {
+
+    }
     static class Launcher {
+        int g;
         public void engage(int targetID){
-            
+            s();
         }
     }
 }
