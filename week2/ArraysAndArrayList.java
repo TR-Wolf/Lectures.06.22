@@ -81,6 +81,7 @@ public class ArraysAndArrayList {
         System.out.println(internObjectList.isEmpty());
         
         // Celebrate
+        // Move to Maps
     }
 }  
 

@@ -1,5 +1,3 @@
-package week2;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +8,12 @@ import java.util.List;
 
 /*public class*/
 public class Solid {
-    private int x;
     public static void main(String[] args) {
         s();
         o();
         l();
         i();
         d();
-        g = 5;
-        otherExamples();
     }
 
     //Single Responsibility
