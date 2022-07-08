@@ -1,3 +1,5 @@
+package SingletonPackage;
+
 public class SingletonString {
     private static SingletonString singleton;
     private String myString;
