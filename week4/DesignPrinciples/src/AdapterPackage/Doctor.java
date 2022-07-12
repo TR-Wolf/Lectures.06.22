@@ -3,7 +3,7 @@ package AdapterPackage;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-class Doctor {
+public class Doctor {
     private String name;
     private String specialty;
     private boolean registered;
@@ -30,6 +30,7 @@ class Doctor {
     public int getPatientCount() {
         return this.patients.size();
     }
+
     public Patient removePatient(){
         return this.patients.remove();
     }

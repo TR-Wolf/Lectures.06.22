@@ -1,5 +1,6 @@
 package MainPackage;
 
+import CompositePackage.Base;
 import SingletonPackage.SingletonString;
 import FactoryPackage.*;
 import FacadePackage.*;
@@ -18,7 +19,7 @@ public class DesignRunner {
     }
     //Main method to run an example of each Design Principle
     public static void main(String[] args) {
-        Example choice = Example.FACTORY;
+        Example choice = Example.COMPOSITE;
 
         switch (choice) {
             case SINGLETON:
@@ -121,15 +122,19 @@ public class DesignRunner {
         // Consider this just an extension of the SOLID design principle O,
         // Open for extension, closed for modification.
         // Rather than change a main class, we will create a new class/interface.
+        Doctor doctorSurgeon = new Doctor("House", "Infectious Diseases");
 
-        Doctor doctor = new Doctor();
+        //What if we want this doctor to be capable of Surgery, do we give it the ability
+        Surgeon surgeon = new Surgeon("Mansion", "Infectious Organs");
 
-        //What if we want this doctor to be capable of Surgery
-
+        surgeon.addPatient(new Patient("Thomas", "Cardiology"));
+        surgeon.beginSurgery("Open Heart Surgery");
     }
 
     /******************************* Composite *******************************/
     public static void compositeExample() {
+        Base oakTree = new Base();
+        oakTree.wind();
 
     }
 

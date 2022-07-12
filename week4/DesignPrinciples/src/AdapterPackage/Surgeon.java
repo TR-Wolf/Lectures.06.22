@@ -5,8 +5,11 @@ public class Surgeon extends Doctor {
         super(name, specialty);
     }
 
-    public void beginSurgery() {
-        Patient victim = super.removePatient();
-//        victim.removeOrgans();
+    public void beginSurgery(String organ) {
+        Patient patient = super.removePatient();
+        System.out.println(super.getName() +" is now doing surgery on " + patient.getName() +"'s " + organ);
+
+        System.out.println("Patient is now waiting for doctor availability for their post-op consultation.");
+        super.addPatient(patient);
     }
 }
