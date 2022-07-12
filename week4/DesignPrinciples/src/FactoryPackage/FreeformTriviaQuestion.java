@@ -2,7 +2,7 @@ package FactoryPackage;
 
 import java.util.Locale;
 
-public class FreeformTriviaQuestion implements TriviaQuestion{
+public class FreeformTriviaQuestion implements TriviaQuestion {
     private String question;
     private String answer;
     FreeformTriviaQuestion(String question, String answer){
