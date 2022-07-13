@@ -20,7 +20,7 @@ public class DesignRunner {
     }
     //Main method to run an example of each Design Principle
     public static void main(String[] args) {
-        Example choice = Example.OBSERVER;
+        Example choice = Example.ADAPTER;
 
         switch (choice) {
             case SINGLETON:
