@@ -5,6 +5,7 @@ import SingletonPackage.SingletonString;
 import FactoryPackage.*;
 import FacadePackage.*;
 import AdapterPackage.*;
+import ObserverPackage.*;
 
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class DesignRunner {
     }
     //Main method to run an example of each Design Principle
     public static void main(String[] args) {
-        Example choice = Example.COMPOSITE;
+        Example choice = Example.OBSERVER;
 
         switch (choice) {
             case SINGLETON:
@@ -133,13 +134,18 @@ public class DesignRunner {
 
     /******************************* Composite *******************************/
     public static void compositeExample() {
-        Base oakTree = new Base();
-        oakTree.wind();
-
+        Base baseOfOakTree = new Base();
+        baseOfOakTree.wind();
     }
 
     /******************************* Observer *******************************/
     public static void observerExample() {
+        Parent mom = new Parent();
+        Child child = new Child();
+        child.setMom(mom);
+        mom.addChild(child);
 
+        //Now let's see what happens when the child graduates!
+        child.graduateSchool();
     }
 }

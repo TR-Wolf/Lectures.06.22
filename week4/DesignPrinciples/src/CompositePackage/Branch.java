@@ -24,6 +24,7 @@ public class Branch implements TreePart {
     @Override
     public void wind() {
         System.out.print(branchPoem);
+        //For each child:
         for (TreePart growth: growths) {
             growth.wind();
         }
