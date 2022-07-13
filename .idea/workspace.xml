@@ -5,8 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a059deb0-6764-48db-8a24-2efe993309ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/week2/FlatIronGames.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/FlatIronGames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/MapExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/MapExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/AdapterPackage/Doctor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/AdapterPackage/Patient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/AdapterPackage/Surgeon.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/Base.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/Branch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/Leaf.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/Tree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/TreePart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/CompositePackage/Trunk.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/FacadePackage/FacadeNumberGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/FacadePackage/NonFacadeNumberGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/MainPackage/DesignRunner$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/MainPackage/DesignRunner$Example.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/MainPackage/DesignRunner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/ObserverPackage/Child$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/ObserverPackage/Child.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/ObserverPackage/Parent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/out/production/DesignPrinciples/ObserverPackage/School.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/AdapterPackage/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/AdapterPackage/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/AdapterPackage/Surgeon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/Branch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/Leaf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/TreePart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/CompositePackage/Trunk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/FacadePackage/FacadeNumberGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/FacadePackage/NonFacadeNumberGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/ObserverPackage/Child.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/ObserverPackage/Parent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/ObserverPackage/School.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/tree.drawio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/week4/DesignPrinciples/treeClassDiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week4/DesignPrinciples/src/SingletonPackage/SingletonString.java" beforeDir="false" afterPath="$PROJECT_DIR$/week4/DesignPrinciples/src/SingletonPackage/SingletonString.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,13 +57,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/wolf/Documents/FlatironJavaLecturesJune2022"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wolf/Documents/FlatironJavaLecturesJune2022&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="FlatironGames" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
@@ -56,5 +89,16 @@
       <updated>1657125384279</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
