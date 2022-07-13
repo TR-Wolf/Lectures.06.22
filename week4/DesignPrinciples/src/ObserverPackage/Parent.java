@@ -14,7 +14,7 @@ public class Parent {
         childrenToSchoolingLevel.put(child, child.getSchool());
     }
 
-    public void childGraduated(School school, Child child){
+    public void childGraduated(Child child){
         if (childrenToSchoolingLevel.get(child) != null) {
             System.out.println("I am so proud! My child just graduated");
         }

@@ -2,23 +2,24 @@ package SingletonPackage;
 
 public class SingletonString {
     private static SingletonString singleton;
-    private String myString;
+    private static String myString;
+
     private SingletonString() {
         myString = "Default String";
     }
 
-    public static SingletonString getInstance() {
+    public static SingletonString getMyStringSingletonPlease() {
         if (singleton == null) {
             singleton = new SingletonString();
         }
         return singleton;
     }
 
-    public void setString(String s){
+    public static void setString(String s){
         myString = s;
     }
 
-    public String getString() {
+    public static String getString() {
         return myString;
     }
 }

@@ -22,7 +22,7 @@ public class Child {
                 break;
         }
         System.out.println("Hey mom, I graduated!");
-        mom.childGraduated(school, this);
+        mom.childGraduated(this);
     }
 
     public Parent getMom() {

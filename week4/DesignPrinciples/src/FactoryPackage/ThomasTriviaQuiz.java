@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class ThomasTriviaQuiz implements TriviaQuiz {
     private Queue<TriviaQuestion> questions;
-    private int total = 0;
+    private int totalPoints = 0;
 
     ThomasTriviaQuiz() {
         questions = new LinkedList<>();
@@ -30,11 +30,11 @@ public class ThomasTriviaQuiz implements TriviaQuiz {
 
     @Override
     public void addPoints(int points) {
-        total += points;
+        totalPoints += points;
     }
 
     @Override
     public int getTotalScore() {
-        return total;
+        return totalPoints;
     }
 }

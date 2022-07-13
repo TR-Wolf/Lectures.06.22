@@ -7,6 +7,8 @@ import FacadePackage.*;
 import AdapterPackage.*;
 import ObserverPackage.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DesignRunner {
@@ -57,19 +59,28 @@ public class DesignRunner {
 
 
         //Now lets create 3 Singletons
-        SingletonString ssOne = SingletonString.getInstance();
-        SingletonString ssTwo = SingletonString.getInstance();
-        SingletonString ssThree = SingletonString.getInstance();
+        SingletonString ssOne = SingletonString.getMyStringSingletonPlease();
+        SingletonString ssTwo = SingletonString.getMyStringSingletonPlease();
+        SingletonString ssThree = SingletonString.getMyStringSingletonPlease();
 
+        //Trying with Static
+        SingletonString.setString("I am setting statically");
+        log(SingletonString.getString());
         //What will we see?
         printSingleton(ssOne.getString(), ssTwo.getString(), ssThree.getString());
 
         //and if we change each one?
+        ssOne.setString("Hello World");
+        ssTwo.setString("Hello Class");
 
         //What will we see?
         printSingleton(ssOne.getString(), ssTwo.getString(), ssThree.getString());
 
         //Again? now what will we see?
+        ssThree.setString("Will I be seen? :(");
+        ssOne.setString("I override all updates.");
+
+
 
         printSingleton(ssOne.getString(), ssTwo.getString(), ssThree.getString());
 
@@ -79,9 +90,7 @@ public class DesignRunner {
 
         //Why?
         //Score-Keeping Example
-
     }
-
 
     public static void log(String s) {
         System.out.println(s);
@@ -98,12 +107,11 @@ public class DesignRunner {
     public static void factoryExample() {
         // First let's open a different project!
         // Trivia Games Supplier!
-        FactoryMain.runMain(); // I can run this since it is a static method
+        Main.runMain(); // I can run this since it is a static method
     }
 
     /******************************* Facade *******************************/
     public static void facadeExample() {
-
         // NON FACADE
         NonFacadeNumberGame.runGame();
 
@@ -123,19 +131,40 @@ public class DesignRunner {
         // Consider this just an extension of the SOLID design principle O,
         // Open for extension, closed for modification.
         // Rather than change a main class, we will create a new class/interface.
-        Doctor doctorSurgeon = new Doctor("House", "Infectious Diseases");
+        //Doctor doctorSurgeon = new Doctor("House", "Infectious Diseases");
 
         //What if we want this doctor to be capable of Surgery, do we give it the ability
         Surgeon surgeon = new Surgeon("Mansion", "Infectious Organs");
 
         surgeon.addPatient(new Patient("Thomas", "Cardiology"));
         surgeon.beginSurgery("Open Heart Surgery");
+        surgeon.removePatient();
+
+        List<Surgeon> surgeons;
     }
 
     /******************************* Composite *******************************/
     public static void compositeExample() {
         Base baseOfOakTree = new Base();
         baseOfOakTree.wind();
+
+        //Navigation Menu
+        //MenuItem
+        //file- folder
+        //      base folder
+        //           /         \
+        //     subfolder 1    subfolder 2   file
+        //         /                 \
+        //     subfolders           files
+
+
+        //Group messaging
+        // Group
+        // All Contacts
+        //  /                 \
+        // Family group       RandomGuy
+        //  / | \
+        //  Family member1, ...
     }
 
     /******************************* Observer *******************************/
@@ -146,6 +175,9 @@ public class DesignRunner {
         mom.addChild(child);
 
         //Now let's see what happens when the child graduates!
+        child.graduateSchool();
+        //I don't need to tell the parent.
+
         child.graduateSchool();
     }
 }

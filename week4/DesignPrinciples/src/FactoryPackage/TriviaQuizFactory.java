@@ -15,7 +15,7 @@ public class TriviaQuizFactory {
         quizzes.put("thomas", ThomasGame);
     }
 
-
+    //Test: expect Thomas Quiz with input Thomas
     TriviaQuiz getQuiz(Scanner scanner) {
         try {
             System.out.println("Type \"quit\" to quit playing quizzes.");
@@ -43,6 +43,25 @@ public class TriviaQuizFactory {
             System.out.println("try again?");
             return getQuiz(scanner);
         }
+        //We should never get here.
+        return null;
+    }
+
+    TriviaQuiz getQuizRandomly() {
+//            System.out.println("Whose quiz do you want to play? " + quizzes.keySet());
+//            if (choice.equalsIgnoreCase("quit")){
+//                return null;
+//            } else {
+//                //If we have the chosen quiz, return it.
+//                TriviaQuiz chosenQuiz = quizzes.get(choice);
+//                if (chosenQuiz != null) {
+//                    return chosenQuiz;
+//                } else {
+//                    System.out.println("Invalid input, try again!");
+//                }
+//            }
+
+
         //We should never get here.
         return null;
     }

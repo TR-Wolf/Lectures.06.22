@@ -1,10 +1,8 @@
 package FactoryPackage;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
-public class FactoryMain {
+public class Main {
     //public static void main(String[] args) {
     public static void runMain() {
         //On my end of things,
@@ -13,6 +11,7 @@ public class FactoryMain {
         boolean playingGames = true;
         Scanner sc = new Scanner(System.in);
         while (playingGames) {
+            //This is the key line of code:
             TriviaQuiz chosenQuiz = myFactory.getQuiz(sc);
             if (chosenQuiz == null) {
                 playingGames = false;

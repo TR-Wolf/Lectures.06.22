@@ -4,5 +4,6 @@ public enum School {
     ELEMENTARY,
     SECONDARY,
     PRIMARY,
-    NONE
+    NONE,
+    FLATIRONSCHOOL
 }

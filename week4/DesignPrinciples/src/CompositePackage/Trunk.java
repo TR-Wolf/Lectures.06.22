@@ -10,7 +10,6 @@ public class Trunk implements TreePart {
     }
     @Override
     public void wind() {
-
         System.out.print("\\\\  //I am the trunk of the tree,\n||  ||rarely does the wind affect me.\n");
         for (TreePart part : growths) {
             part.wind();
