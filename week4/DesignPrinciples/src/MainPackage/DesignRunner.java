@@ -1,7 +1,13 @@
 package MainPackage;
 
+import CompositePackage.Base;
 import SingletonPackage.SingletonString;
 import FactoryPackage.*;
+import FacadePackage.*;
+import AdapterPackage.*;
+import ObserverPackage.*;
+
+import java.util.Scanner;
 
 public class DesignRunner {
     public enum Example {
@@ -14,7 +20,7 @@ public class DesignRunner {
     }
     //Main method to run an example of each Design Principle
     public static void main(String[] args) {
-        Example choice = Example.FACADE;
+        Example choice = Example.OBSERVER;
 
         switch (choice) {
             case SINGLETON:
@@ -67,24 +73,16 @@ public class DesignRunner {
 
         printSingleton(ssOne.getString(), ssTwo.getString(), ssThree.getString());
 
-        //Implement a basic logger!
-//        Logger logger = Logger.getInstance();
+        // Warning, don't use these if you need to do unit testing.
+        // - we want you to understand how these work in case you see them
+        // or more rarely you need to use them for a specific use-case.
 
-        //log a few times
-//        Logger secondLogger = Logger.getInstance();
-
-//        logger.log("Hello World!");
-//        secondLogger.log("Hello World, from somewhere entirely different!");
+        //Why?
+        //Score-Keeping Example
 
     }
-    class Logger {
-        private int lineNumber;
-        //we need a constructor...
 
-        //and a get instance method...
 
-        //public method which provides a utility
-    }
     public static void log(String s) {
         System.out.println(s);
     }
@@ -106,20 +104,48 @@ public class DesignRunner {
     /******************************* Facade *******************************/
     public static void facadeExample() {
 
+        // NON FACADE
+        NonFacadeNumberGame.runGame();
+
+        // FACADE
+        FacadeNumberGame game = new FacadeNumberGame();
+        Scanner sc = game.generateScanner();
+        game.createBufferedImage();
+        game.getDifficulty(sc);
+        game.printDifficulty();
+        game.generateNumber();
+        game.getUserNumber(sc);
+        game.printWinner();
     }
 
     /******************************* Adapter *******************************/
     public static void adapterExample() {
+        // Consider this just an extension of the SOLID design principle O,
+        // Open for extension, closed for modification.
+        // Rather than change a main class, we will create a new class/interface.
+        Doctor doctorSurgeon = new Doctor("House", "Infectious Diseases");
 
+        //What if we want this doctor to be capable of Surgery, do we give it the ability
+        Surgeon surgeon = new Surgeon("Mansion", "Infectious Organs");
+
+        surgeon.addPatient(new Patient("Thomas", "Cardiology"));
+        surgeon.beginSurgery("Open Heart Surgery");
     }
 
     /******************************* Composite *******************************/
     public static void compositeExample() {
-
+        Base baseOfOakTree = new Base();
+        baseOfOakTree.wind();
     }
 
     /******************************* Observer *******************************/
     public static void observerExample() {
+        Parent mom = new Parent();
+        Child child = new Child();
+        child.setMom(mom);
+        mom.addChild(child);
 
+        //Now let's see what happens when the child graduates!
+        child.graduateSchool();
     }
 }
