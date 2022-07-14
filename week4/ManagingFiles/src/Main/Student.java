@@ -1,6 +1,8 @@
 package Main;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private String firstName;
     private String lastName;
     private int studentNumber;
@@ -21,5 +23,17 @@ public class Student {
     @Override
     public String toString() {
         return studentNumber + ", " + firstName + ", " + lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
     }
 }

@@ -1,30 +1,48 @@
 package Main;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class RunnerMain {
     private static String fileName = "";
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Today we are covering
         // Using String Arguments (from Command Line)
         // Using String Arguments from IDE Configuration
         // Opening a file
 
         //Read and Writing to files
-        readAndWriting(args);
-
-
+        //readAndWriting(args);
 
         //Ok, lets parse a file we just made
-        //List<Student> studentList = parseCsv(args[1]);
+        List<Student> studentList = parseCsv(args[1]);
+
+        //And now lets print what we read into a JSON string
+        //writeJson(studentList);
+
+
+
+        //SERIALIZATION
+        //Last topic for today is Serialization
+        Student preSerializedStudent = studentList.get(0);
+        serializeObject(preSerializedStudent);
+
+        Student deserializedStudent = (Student) deserializeObject();
+
+//        System.out.println("Let's compare the toStrings of our two Students");
+//        System.out.println(preSerializedStudent.toString());
+//        System.out.println(deserializedStudent.toString());
+//        System.out.println("\n Now are these the exact same object? Hashcodes:");
+//        System.out.println(preSerializedStudent.hashCode());
+//        System.out.println(deserializedStudent.hashCode());
     }
 
-    public static void readAndWriting(String[] args){
+    public static void readAndWriting(String[] args) throws JsonProcessingException {
         if (args.length > 0) {
             fileName = args[0];
         }
@@ -79,9 +97,6 @@ public class RunnerMain {
         }
 
         writeCsv(args[1], students);
-
-
-
     }
 
     public static void writeCsv(String fileName, List<Student> students){
@@ -125,6 +140,61 @@ public class RunnerMain {
             //Make a student object
 
         //Return the finished list
+        students.add(new Student("Tom", "W"));
+        students.add(new Student("Jay", "mans"));
         return  students;
+    }
+
+    public static void writeJson(List<Student> students) throws JsonProcessingException {
+        //JSON
+        // A student object will consist of
+        // {"firstname":"", "lastName":"", "studentNumber":#}
+        //After importing 'com.fasterxml.jackson' using the Canvas tutorial
+        //I can now use ObjectMapper to write our object as a JSON string:
+        String json = new ObjectMapper().writeValueAsString(students);
+        System.out.println(json);
+
+        //formatting
+        String newJson = "";
+        for (String s : json.split("},")) {
+            newJson += s + "}\n";
+        }
+        System.out.println("Formatted JSON:\n" + newJson);
+
+    }
+    // SERIALIZATION
+
+    static void serializeObject(Object o) throws IOException {
+        ObjectOutputStream personObjectStream = null;
+        try {
+            FileOutputStream objFile = new FileOutputStream("person.dat");
+            personObjectStream = new ObjectOutputStream(objFile);
+            personObjectStream.writeObject(o);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            if (personObjectStream != null) {
+                personObjectStream.flush();
+                personObjectStream.close();
+            }
+        }
+    }
+
+    static Object deserializeObject() throws IOException {
+        ObjectInputStream personInputStream = null;
+        Object newObject = null;
+        try {
+            FileInputStream personFile = new FileInputStream("person.dat");
+            personInputStream = new ObjectInputStream(personFile);
+            newObject = personInputStream.readObject();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            if (personInputStream != null) {
+                personInputStream.close();
+            }
+        }
+
+        return newObject;
     }
 }
