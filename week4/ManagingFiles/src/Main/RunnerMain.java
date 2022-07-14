@@ -15,42 +15,50 @@ public class RunnerMain {
         // Using String Arguments (from Command Line)
         // Using String Arguments from IDE Configuration
         // Opening a file
+        // Reading data from a file into a list of objects
+        // Writing data from a list of objects into a file
+        // again, but in Json,
+        // again, but with Serialization.
 
-        //Read and Writing to files
-        //readAndWriting(args);
+        // Read and Writing to Files
+        if (args.length > 1) {
+            readAndWriting(args);
+        } else {
+            System.out.println("invalid arguments");
+            return;
+        }
 
         //Ok, lets parse a file we just made
         List<Student> studentList = parseCsv(args[1]);
 
         //And now lets print what we read into a JSON string
-        //writeJson(studentList);
-
-
+        writeJson(studentList);
 
         //SERIALIZATION
         //Last topic for today is Serialization
-        Student preSerializedStudent = studentList.get(0);
+        Student preSerializedStudent;
+        if (studentList.size() == 0) {
+            preSerializedStudent = new Student("Example", "Student", 1);
+        }
+        preSerializedStudent = studentList.get(0);
         serializeObject(preSerializedStudent);
 
         Student deserializedStudent = (Student) deserializeObject();
 
-//        System.out.println("Let's compare the toStrings of our two Students");
-//        System.out.println(preSerializedStudent.toString());
-//        System.out.println(deserializedStudent.toString());
-//        System.out.println("\n Now are these the exact same object? Hashcodes:");
-//        System.out.println(preSerializedStudent.hashCode());
-//        System.out.println(deserializedStudent.hashCode());
+        System.out.println("Let's compare the toStrings of our two Students");
+        System.out.println(preSerializedStudent.toString());
+        System.out.println(deserializedStudent.toString());
+        System.out.println("\n Now are these the exact same object? Hashcodes:");
+        System.out.println(preSerializedStudent.hashCode());
+        System.out.println(deserializedStudent.hashCode());
     }
 
-    public static void readAndWriting(String[] args) throws JsonProcessingException {
+    public static void readAndWriting(String[] args)  {
+        //Using arguments for now.
         if (args.length > 0) {
             fileName = args[0];
         }
-        try {
-            FileReader.writeToFile("UselessFile.txt", "data");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
         System.out.println("The user has chosen this file: " + fileName);
         // If the File of this file name does not exist, exit program
         if (!new File(fileName).exists()) {
@@ -60,36 +68,46 @@ public class RunnerMain {
 
         //Get the contents of the file from our File Reader, made by curriculum.
         String contentsOfFile = FileReader.readFromFile(fileName);
-        System.out.println("Here is the content of the file: ");
-        System.out.println(contentsOfFile);
+        //System.out.println("Here is the content of the file: ");
+        //System.out.println(contentsOfFile);
+
+        try {
+            FileReader.writeToFile("UselessFile.txt", "data");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         //Let's read it on our own now, into an arrayList.
         List<Student> students = new ArrayList<>();
-        Scanner fileReader = null;
+        Scanner scanner = null;
         String thisLine = "";
 
         try {
-            // Open file reader with chosen file.
-
+            // Open Scanner with chosen file.
+            File myFile = new File(fileName);
+            scanner = new Scanner(myFile);
 
             //While the file reader has a next line to read
+            while (scanner.hasNextLine()) {
+                //Read in the next line
+                thisLine = scanner.nextLine();
 
-            //Read in the next line
-
-            //Format it as a Student object
-
-            //String.split will split the name by spaces i.e. "thomas wolf" -> { "thomas", "wolf" }
-            String[] name = thisLine.split(" ");
-            if (name.length > 2) {
-                String firstName = name[0];
-                String lastName = name[1];
-                //Add student to our list of students.
+                //Format it as a Student object=
+                //String.split will split the name by spaces i.e. "thomas wolf" -> { "thomas", "wolf" }
+                String[] name = thisLine.split("\t");
+                if (name.length >= 2) {
+                    String firstName = name[0];
+                    String lastName = name[1];
+                    Student thisStudent = new Student(firstName, lastName);
+                    //Add student to our list of students.
+                    students.add(thisStudent);
+                }
             }
         } catch (Exception e) {
             System.out.println("Error occured while reading file, exiting...");
             return;
         }
-        students.add(new Student("Thomas","Wolf"));
+
         //At this point in the program we have an ArrayList of Student objects.
         //For each student inside of students print their to string.
         for (Student student : students) {
@@ -116,13 +134,22 @@ public class RunnerMain {
 
         //Ok let's use a string buffer now!
         StringBuffer stringBuffer = new StringBuffer();
+
         //add a header to csv file.
-        //"StudentID,FirstName,LastName\n"
+        stringBuffer.append("StudentID, FirstName, LastName\n");
+
         //For each student inside of students write them to fileWriter.
-//        for (Student student : students) {
-//            student.toString() + "\n"
-//        }
-        //filename = sb + filename
+        for (Student student : students) {
+            stringBuffer.append(student.toString() + "\n");
+        }
+        fileName = "sb" + fileName;
+        try (FileWriter fileWriter = new FileWriter(fileName);) {
+            //add a header to csv file.
+            fileWriter.write(stringBuffer.toString());
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+
     }
 
     public static List<Student> parseCsv(String fileName) {
@@ -130,18 +157,39 @@ public class RunnerMain {
         List<Student> students = new ArrayList<>();
 
         //We are going to open the file using a Scanner.
-
+        File csvFile = new File(fileName);
+        Scanner scanner;
+        try {
+            scanner = new Scanner(csvFile);
+        } catch (Exception e) {
+            System.out.println("File does not exist");
+            return null;
+        }
+        System.out.println("File does exist!");
 
         //First let's read off the header
+        String header = scanner.nextLine();
 
         //While there is a next line in the file
+        while (scanner.hasNextLine()) {
             //Read off the next line
+            String thisLine = scanner.nextLine();
+
             //Split on commas
+            String[] studentStrings = thisLine.split(",");
+
             //Make a student object
+            int studentID = Integer.parseInt(studentStrings[0]);
+            String firstName = studentStrings[1];
+            String lastName = studentStrings[2];
+
+            Student student = new Student(firstName, lastName, studentID);
+
+            //Add the student to the list.
+            students.add(student);
+        }
 
         //Return the finished list
-        students.add(new Student("Tom", "W"));
-        students.add(new Student("Jay", "mans"));
         return  students;
     }
 
@@ -149,6 +197,10 @@ public class RunnerMain {
         //JSON
         // A student object will consist of
         // {"firstname":"", "lastName":"", "studentNumber":#}
+        // Example:
+        // Car
+        // objectname: {"EngineName":Engine, "YearCreated":2022 ...... Motors: [                ]}
+
         //After importing 'com.fasterxml.jackson' using the Canvas tutorial
         //I can now use ObjectMapper to write our object as a JSON string:
         String json = new ObjectMapper().writeValueAsString(students);
@@ -162,20 +214,20 @@ public class RunnerMain {
         System.out.println("Formatted JSON:\n" + newJson);
 
     }
-    // SERIALIZATION
 
+    // SERIALIZATION
     static void serializeObject(Object o) throws IOException {
-        ObjectOutputStream personObjectStream = null;
+        ObjectOutputStream objectStream = null;
         try {
             FileOutputStream objFile = new FileOutputStream("person.dat");
-            personObjectStream = new ObjectOutputStream(objFile);
-            personObjectStream.writeObject(o);
+            objectStream = new ObjectOutputStream(objFile);
+            objectStream.writeObject(o);
         } catch (Exception exception) {
             exception.printStackTrace();
         } finally {
-            if (personObjectStream != null) {
-                personObjectStream.flush();
-                personObjectStream.close();
+            if (objectStream != null) {
+                objectStream.flush();
+                objectStream.close();
             }
         }
     }
