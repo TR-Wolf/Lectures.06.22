@@ -20,6 +20,10 @@ public class Student implements Serializable {
         this.studentNumber = this.hashCode();
     }
 
+    public Student(){
+
+    }
+
     @Override
     public String toString() {
         return studentNumber + ", " + firstName + ", " + lastName;
