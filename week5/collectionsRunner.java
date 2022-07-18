@@ -1,7 +1,7 @@
 import java.io.PipedReader;
 import java.util.*;
 
-public class collectionsRunner {
+public class CollectionsRunner {
     public static void main(String[] args) {
         Collection<String> myCollection;
         // What is this interface
