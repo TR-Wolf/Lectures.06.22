@@ -1,4 +1,3 @@
-import java.io.PipedReader;
 import java.util.*;
 
 public class CollectionsRunner {
@@ -28,62 +27,60 @@ void    clear(): Removes all elements from the collection.
         myCollection = new ArrayList();
 
         myCollection.add("Hello");
-//        myCollection.add(" world!\n");
+        myCollection.add(" world!\n");
 
-        Collection<String> extraCollection = new LinkedList();
-        extraCollection.add(" world!\n");
-        myCollection.addAll(extraCollection);
+//        Collection<String> extraCollection = new LinkedList();
+//        extraCollection.add(" world!\n");
+//        myCollection.addAll(extraCollection);
 
         myCollection.forEach((s) -> System.out.print(s));
 
 
         //// Linked List
-        List myList = new LinkedList<>();
-        myList.add("one ");
-        myList.add("two ");
-        myList.add("three ");
-
-        myList.forEach((s) -> System.out.print(s));
+//        Collection myList = new LinkedList<>();
+//        myList.add("one ");
+//        myList.add("two ");
+//        myList.add("three ");
+//
+//        myList.forEach((s) -> System.out.print(s));
 
         //// While my Collection is NOT empty, let's remove a member and print the list.
-        int count = 0;
-        while (!myList.isEmpty() && count++ < 100) {
-
-            System.out.println("\nRemoving:" + myList.remove(0));
-
-            myList.forEach((s) -> System.out.println(s));
-        }
+//        int count = 0;
+//        while (!myList.isEmpty() && count++ < 100) {
+//            System.out.println("\nRemoving:" + myList.remove(0));
+//
+//            myList.forEach((s) -> System.out.println(s));
 
         ////Priority Queue (goto Person first)
-        PriorityQueue<Person> emergencyRoomQueue = new PriorityQueue<>();
-
-        emergencyRoomQueue.add(new Person("Caspoor", -5));
-        emergencyRoomQueue.add(new Person("Joe", 4));
-        emergencyRoomQueue.add(new Person("George", 4));
-
-        //Who get's to leave first?
-        Person personInNeed = emergencyRoomQueue.remove();
-        personInNeed.admit();
-
-        //and second?
-        personInNeed = emergencyRoomQueue.remove();
-        personInNeed.admit();
+//        PriorityQueue<Person> emergencyRoomQueue = new PriorityQueue<>();
+//
+//        emergencyRoomQueue.add(new Person("Caspoor", -5));
+//        emergencyRoomQueue.add(new Person("Joe", 4));
+//        emergencyRoomQueue.add(new Person("George", 4));
+//
+//        //Who get's to leave first?
+//        Person personInNeed = emergencyRoomQueue.remove();
+//        personInNeed.admit();
+//
+//        //and second?
+//        personInNeed = emergencyRoomQueue.remove();
+//        personInNeed.admit();
 
         ////Let's add a few billionaires, and Thomas
-        emergencyRoomQueue.add(new Person("Jeffrey Bezos", (136.3 * Math.pow(10, 6)))); // 136 Billion
-        emergencyRoomQueue.add(new Person("Elon Musk", (229.1 * Math.pow(10, 6)))); //229 billion
-        emergencyRoomQueue.add(new Person("Thomas Wolf", 20));
-        System.out.println("Billionaires (and Thomas) have walked into the ER waiting room.");
-
-        personInNeed = emergencyRoomQueue.remove();
-        personInNeed.admit(); //who?
-
-        personInNeed = emergencyRoomQueue.remove();
-        personInNeed.admit();
-
-
-        personInNeed = emergencyRoomQueue.remove();
-        personInNeed.admit();
+//        emergencyRoomQueue.add(new Person("Jeffrey Bezos", (136.3 * Math.pow(10, 6)))); // 136 Billion
+//        emergencyRoomQueue.add(new Person("Elon Musk", (229.1 * Math.pow(10, 6)))); //229 billion
+//        emergencyRoomQueue.add(new Person("Thomas Wolf", 20));
+//        System.out.println("Billionaires (and Thomas) have walked into the ER waiting room.");
+//
+//        personInNeed = emergencyRoomQueue.remove();
+//        personInNeed.admit(); //who?
+//
+//        personInNeed = emergencyRoomQueue.remove();
+//        personInNeed.admit();
+//
+//
+//        personInNeed = emergencyRoomQueue.remove();
+//        personInNeed.admit();
 
         //// Tree Set
         TreeSet<Person> hospitalPatientsSet = new TreeSet<>();
@@ -102,20 +99,9 @@ void    clear(): Removes all elements from the collection.
         Person last = hospitalPatientsSet.last();
         System.out.println(last.toString() + " will be seen last today.");
 
-        //// Let's try: range(l,u), headset(#) and tailset(#)
-        // -10, -5 , 0, 5, 10
-        //        0
-        SortedSet headset = hospitalPatientsSet.headSet(new Person("New Person", 4));
-        System.out.println("headset:");
-        headset.forEach((o) -> {
-            System.out.println(o.toString());
-        });
+        //// Let's try: range(l,u), headset(#) and tailset(#) (smaller and larger)
 
-        SortedSet tailset = hospitalPatientsSet.tailSet(new Person("New Person", 4));
-        System.out.println("\ntailset:");
-        tailset.forEach((o) -> {
-            System.out.println(o.toString());
-        });
+
 
     }
 
@@ -143,25 +129,10 @@ void    clear(): Removes all elements from the collection.
 
         @Override
         public int compareTo(Object o) {
-            // Idea: How can we compare by two metrics if the first is equal??
-
-            //If they are equal, return something else.
-            //  Compare by character
-            // name.compareTo(Person.getName())
-
-            //store a list of those objects which are the same.
-
-            //Compare by character
-
-            // * 10000,  560, 600   100040 200040 200060
-
             // We want to consider this as a person, not as an object.
             Person otherPerson = (Person)o;
-            // Do I have a larger net worth? How much bigger is my net worth?'
-
-            //if they have same net worth, check their String compareto for Name
+            // Do I have a larger net worth? How much bigger is my net worth?
             return (int) (otherPerson.getNetWorth() - this.netWorth);
-            //Write code to organize alphabetically
         }
     }
     
