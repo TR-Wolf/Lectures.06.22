@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "week2",
-        ""
+        "Week5/Stream",
+        "Week5/Optional"
     ]
 }
