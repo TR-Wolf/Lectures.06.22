@@ -19,21 +19,13 @@ public class Part3Practice {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 5);
         // How can I get the biggest integer?
-        int max = numbers.stream().mapToInt(x -> x).max().getAsInt();
-        // System.out.println(max);
 
         // How can I get the average?
-        double average = numbers.stream().mapToInt(x -> x).average().getAsDouble();
-        // System.out.println(average);
 
         List<String> simulatedUserInput = Arrays.asList("", "Jay", " ", "St. Jay's Hospital", "1", "Jay Hospital");
 
         // How can I take that list and get a list of the non-blank Strings contained in
         // that list?
-        // blank == only has whitespace or nothing
-        // empty == nothing
-        List<String> nonBlankStrings = simulatedUserInput.stream().filter(str -> !str.isBlank()).toList(); 
-        // System.out.println(nonBlankStrings);
 
         // How can I take that list and get a list of the blank Strings contained in
         // that list?
@@ -47,14 +39,10 @@ public class Part3Practice {
 
         // How can I take that list and filter out blank Strings and then get a list
         // containing the remaining Strings but uppercased
-        List<String> nonBlankAndUppercasedNow = simulatedUserInput.stream().filter(str -> !str.isBlank()).map(nonBlankString -> nonBlankString.toUpperCase()).toList(); 
-        System.out.println(nonBlankAndUppercasedNow);
 
         // How can I take that list, remove null entries, remove all whitespace from each
         // string,
         // and then get the average length of the remaining strings?
-        double averageLength = nonBlankAndUppercasedNow.stream().filter(str -> str != null).map(str -> str.replaceAll("\\s+", "")).mapToInt(str -> str.length()).average().getAsDouble();
-        System.out.println(averageLength);
 
         Set<WorkOrder> orders = Stream.of(new WorkOrder(BigDecimal.valueOf(1.33)),
                 new WorkOrder(BigDecimal.valueOf(2.43)), new WorkOrder(BigDecimal.valueOf(1.66)),

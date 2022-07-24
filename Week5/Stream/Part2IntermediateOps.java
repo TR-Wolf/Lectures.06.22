@@ -49,35 +49,10 @@ public class Part2IntermediateOps {
         // We need to flatMap them
         List<List<Integer>> listOfListsOfIntegers = Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6), Arrays.asList(-1, -3, -5));
         List<Integer> flattenedList = listOfListsOfIntegers.stream().flatMap(aSingleListFromTheBigList -> aSingleListFromTheBigList.stream()).toList();
-        List<Doctor> doctors = Arrays.asList(new Doctor(), new Doctor(), new Doctor());
-        System.out.println("PATIENTS");
-        String patientNames = doctors.stream().flatMap(doctor -> doctor.getPatients().stream()).map(patient -> patient.getName()).collect(Collectors.joining("\n"));
-        System.out.println(patientNames);
         // flatMap(a function that returns a Stream) --- this sort of merges all the streams from all the lists together into one big stream
         // in JS, listOfListsOfIntegers.flatMap(aSingleListFromTheBigList => aSingleListFromTheBigList);
-        System.out.println("flattenedList::" + flattenedList);
+        // System.out.println("flattenedList::" + flattenedList);
 
         
     }
-}
-
-class Patient {
-    private String name;
-    
-    public Patient(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-}
-
-class Doctor {
-    List<Patient> patients = new ArrayList<>(Arrays.asList(new Patient("Sabrina")));
-
-    public List<Patient> getPatients() {
-        return patients;
-    }
-    
 }

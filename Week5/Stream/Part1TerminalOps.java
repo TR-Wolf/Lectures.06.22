@@ -53,8 +53,8 @@ public class Part1TerminalOps {
 
         // Maybe I want to know if the List contains at least one string longer than 5 characters
         boolean containsAStringLongerThan5Characters = stringList.stream().anyMatch(aString -> aString.length() > 5);
-        System.out.println(containsAStringLongerThan5Characters);
-        boolean containsJ = stringList.stream().anyMatch(aString -> aString.equals("J"));
+
+        boolean containsJ = stringList.stream().anyMatch(Predicate.equals("J"));
  
 
         // There are more terminal operations.
