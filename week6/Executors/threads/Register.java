@@ -10,6 +10,7 @@ public class Register implements Runnable {
     public void run() {
         SingletonQueue orders = SingletonQueue.getInstance();
         SingletonBoolean storeOpen = SingletonBoolean.getInstance();
+
         Scanner customer = new Scanner(System.in);
         // First PsuedoCode:
         // While the store is open

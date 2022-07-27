@@ -7,7 +7,7 @@ public class SingletonQueue {
     private static SingletonQueue singletonQueue;
     private static Queue<String> queue;
 
-    public static SingletonQueue getInstance() {
+    public static synchronized SingletonQueue getInstance() {
         if (singletonQueue == null) {
             singletonQueue = new SingletonQueue();
         }

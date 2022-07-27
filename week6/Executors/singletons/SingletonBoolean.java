@@ -4,7 +4,7 @@ public class SingletonBoolean {
     private static SingletonBoolean singletonBoolean;
     private static Boolean bool;
 
-    public static SingletonBoolean getInstance() {
+    public static synchronized SingletonBoolean getInstance() {
         if (singletonBoolean == null) {
             singletonBoolean = new SingletonBoolean();
         }

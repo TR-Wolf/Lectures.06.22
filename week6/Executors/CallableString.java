@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 
 public class CallableString implements Callable {
     @Override
-    public Object call() throws Exception {
+    public String call() {
         System.out.println(Thread.currentThread().getName() + " is responsible for this call");
 
         StringBuilder sb = new StringBuilder();
@@ -13,6 +13,9 @@ public class CallableString implements Callable {
             spaces.append(" ");
             sb.append(spaces.toString() + ch + "\n");
         };
+        // a
+        //   b
+        //     c
         return sb.toString();
     }
 }
