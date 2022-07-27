@@ -1,5 +1,9 @@
 package Executors;
 
+import Executors.singletons.SingletonBoolean;
+import Executors.threads.Chef;
+import Executors.threads.Register;
+
 import java.util.concurrent.*;
 
 public class ExecutorsExamples {
@@ -19,8 +23,8 @@ public class ExecutorsExamples {
         storeOpen.setBoolean(true);
 
         // Re-using simple example from basics lecture
-        Chef spongebob = new Chef();
-        Register squidward = new Register();
+        Runnable spongebob = new Chef();
+        Runnable squidward = new Register();
 
         // Executor begins both threads for us.
         /********* SimpleExecutor *********/
@@ -37,25 +41,36 @@ public class ExecutorsExamples {
 
         //// Calling the executor
 
+        // When executing a regular executor,
+        // Squidward and spongebob are...
+        //
 //        simpleExecutor.execute(squidward);
 //        simpleExecutor.execute(spongebob);
 
+        // When executing a single thread executor,
+        // Squidward and spongebob are ...
 //        singleThreadExecutor.execute(squidward);
 //        singleThreadExecutor.execute(spongebob);
 
+        // When executing a cached thread pool executor,
+        // Squidward and spongebob are ...
 //        cachedExecutor.execute(squidward);
 //        cachedExecutor.execute(spongebob);
 
-//        scheduleExecutor.execute(squidward);
-//        scheduleExecutor.execute(spongebob);
-//        scheduleExecutor.scheduleAtFixedRate();
+        // Let's find the bug (remember we set the thread pool to : 1)
+        scheduleExecutor.execute(spongebob);
+        scheduleExecutor.execute(squidward);
+        // This part you aren't being tested over, I
+        // am including it just for your benefit:
+//        scheduleExecutor.scheduleAtFixedRate(squidward, 0, 0, TimeUnit.SECONDS);
+//        scheduleExecutor.scheduleAtFixedRate(spongebob, 7, 0, TimeUnit.SECONDS);
 
+        // Let the krusty krab run for 30 seconds before shutting it down.
         try {
             Thread.sleep(30_000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         storeOpen.setBoolean(false);
 
 //        storeOpen.setBoolean(true);
@@ -69,7 +84,8 @@ public class ExecutorsExamples {
         // <V> call() throws Exception
 
         callableObject = new CallableString();
-        Future futureObject = cachedExecutor.submit(callableObject);
+
+//        Future futureObject = singleThreadExecutor.submit(callableObject);
 
         // Tasks with Callable can be submitted to Executors.
         // Threads are not always ran immediatly,
@@ -84,7 +100,10 @@ public class ExecutorsExamples {
         //
         // cancel:      Cancels the task if possible.
         // isDone:      It returns true if the task ran successfully.
-        // isCancelled: It returns true if cancel was previously called.
+//        System.out.println(futureObject.get());
 
+        singleThreadExecutor.shutdown();
+        cachedExecutor.shutdown();
+        scheduleExecutor.shutdown();
     }
 }

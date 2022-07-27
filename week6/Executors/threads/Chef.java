@@ -1,11 +1,15 @@
-package Executors;
+package Executors.threads;
+
+import Executors.singletons.SingletonBoolean;
+import Executors.singletons.SingletonQueue;
 
 public class Chef implements Runnable {
     @Override
     public void run() {
         SingletonQueue orders = SingletonQueue.getInstance();
         SingletonBoolean storeOpen = SingletonBoolean.getInstance();
-
+        System.out.println("ᶦ'ᵐ ʳᵉᵃᵈʸᵎ ᶦᵐ ʳᵉᵃᵈʸᵎ i'm ready, i'm ready, I'm Ready!");
+        System.out.println("Hey Squidward, ready for another day of work at the Krusty Krab!");
         // While the store is open
         while (storeOpen.getBoolean()) {
             // Let's wait 7 seconds between clearing orders

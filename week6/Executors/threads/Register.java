@@ -1,4 +1,7 @@
-package Executors;
+package Executors.threads;
+
+import Executors.singletons.SingletonBoolean;
+import Executors.singletons.SingletonQueue;
 
 import java.util.Scanner;
 
@@ -17,7 +20,7 @@ public class Register implements Runnable {
         while (storeOpen.getBoolean()) {
             //sleep for 5 seconds between customers
             try {
-                Thread.sleep(5_000);
+                Thread.sleep(2_000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

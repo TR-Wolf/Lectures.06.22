@@ -1,4 +1,4 @@
-package Executors;
+package Executors.singletons;
 
 public class SingletonBoolean {
     private static SingletonBoolean singletonBoolean;

@@ -1,4 +1,4 @@
-package Executors;
+package Executors.singletons;
 
 import java.util.LinkedList;
 import java.util.Queue;
