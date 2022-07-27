@@ -32,7 +32,7 @@ public class ThreadBasics {
 //        // After example, see if someone asks why I made this a global variable.
 //        burgerCooked = false;
 //
-//        // Creating a Chef Thread using new Runnable() to create Override.
+//        // Creating a Executors.Chef Thread using new Runnable() to create Override.
 //        // Is Runnable a functional interface? let's take a look. ->...
 //        // Can we turn this into a lambda expression y/n? (Incoming random student request)
 //        Thread chefThread = new Thread(new Runnable() {
@@ -56,7 +56,7 @@ public class ThreadBasics {
 //            }
 //        });
 //
-//        // (Afterwards) Create Chef Thread from a Runnable Class instead.
+//        // (Afterwards) Create Executors.Chef Thread from a Runnable Class instead.
 //        // Use constructor (Runnable object, String threadName)
 //        Thread chefThread2 = new Thread();
 //
