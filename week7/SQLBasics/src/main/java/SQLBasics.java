@@ -13,7 +13,7 @@ public class SQLBasics {
 
         Popular Naming Convention:
     All caps for key words
-        (SELECT, DROP, JOIN)
+        (SELECT, DROP, JOIN, UPDATE)
     lowercase with underscores for tables, and variables
         names_are_lowercase
         media_types
@@ -45,6 +45,8 @@ Useful Resource: https://www.w3schools.com/sql/
         TABLE table_name  
             - used for making updates to table_name.
 
+    CREATE TABLE new_table;
+        
     SELECT column(s) FROM table_name;
         - used to take a set of columns from a table.
     
@@ -60,6 +62,9 @@ Useful Resource: https://www.w3schools.com/sql/
         =
             - Logical operators for declaring a boolean
             - equal sign is to check for equality.
+            - HAPPY AND SAD
+            - (not 30 or 29)
+            - NOT ((age = 30) OR (AGE = 29));
     
     ORDER BY column_name ASC/DESC, ...
         - used to order list by a column
@@ -70,6 +75,12 @@ Useful Resource: https://www.w3schools.com/sql/
         - used to add a row into a column of a table.
         - you may determine which columns
             - unfilled columns will be left as null.
+
+    UPDATE
+    
+    DELETE
+
+    DROP
 
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
     Keys
