@@ -1,6 +1,13 @@
+import java.io.IOException;
+
 public class SQLBasics {
     public static void main(String[] args) {
         System.out.println("I love SQL");
+        try {
+            FileReader.writeToFile("SQLStudents.txt", studentsAsSQL());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     /*
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
@@ -97,7 +104,116 @@ SELECT BillingAddress FROM invoices
 WHERE CustomerId = '1';
 
 // How should we change the code above?
-     
+
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+    SQL Two, Relational Databases (which SQL is)
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+
+Sort these:
+student - (academic) record
+teacher - student
+student - teacher (what's the difference)
+doctor - patient
+parent - child
+customer - work_order
+customer - insurance_info
+
+One to One:
+"has a"
+
+One to Many:
+"has many"
+
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+        Primary Key and Foreign Key (SQL: PRIMARY KEY)
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+CREATE TABLE teachers
+(
+    teacher_id INT PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+)
+
+CREATE TABLE students
+(
+	student_id INT PRIMARY KEY,
+	first_name TEXT,
+	last_name TEXT,
+	gpa REAL,
+	teacher_id INT
+);
+
+
+INSERT into teachers
+VALUES (0, "Thomas", "Wolf");
+
+INSERT into teachers
+VALUES (1, "Jay", "Mansmann");
+
+*/
+//Java code:
+public static String studentsAsSQL(){
+    StringBuilder sqlSB= new StringBuilder();
+
+    String[][] studentNames = { {"Abdella", "Abdushukur"},
+                                    {"Adrian", "Khaskin"},
+                                    {"Angel", "Concepcion"},
+                                    {"Anug", "Saha"},
+                                    {"Caroline", "Rives"},
+                                    {"Conner", "Gleason"},
+                                    {"James", "Hortman"},
+                                    {"John", "Lee"},
+                                    {"Juan", "Restrepo"},
+                                    {"LaToya", "Bailey"},
+                                    {"Mohamed", "Ibrahim"},
+                                    {"Oscar", "Cerrato"},
+                                    {"Paxton", "Edgar"},
+                                    {"Sabrina", "Chowdhury"},
+                                    {"Sean", "Jung"},
+                                    {"Sercan", "Tuna"},
+                                    {"Youngyo", "Na"}
+        };
+        int id = 0;
+        for (String[] strings : studentNames) {
+            String firstName = strings[0];
+            String lastName = strings[1];
+            double gpa = ((int) (Math.random()*5000.0))/1000.0;
+            int teacher_id = (int)(Math.random()*2);
+            sqlSB.append("INSERT INTO students\n" +
+                        "VALUES(" + id++ + "," +
+                        "\"" + firstName +"\"," +
+                        "\""+lastName+"\"," +
+                        gpa + ", " + 
+                        teacher_id + ");\n");
+        }
+        return sqlSB.toString();
+}
+
+/*
+
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+        Foreign Key
+~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+
+
+
+
+SELECT * FROM artists, albums, tracks, genres
+WHERE artists.ArtistId = albums.AlbumId
+AND albums.AlbumId = tracks.AlbumId
+AND tracks.GenreId = genres.GenreId;
+
+SELECT DISTINCT artists.Name as BandName, a.Title as AlbumName, g.Name as Genre
+FROM artists
+JOIN albums as a
+ON a.ArtistId=artists.ArtistId
+JOIN tracks as t
+ON a.AlbumId=t.AlbumId
+JOIN genres as g
+ON t.GenreId=g.GenreId
+ORDER BY AlbumName;
+
+
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
 End of SQL Comments
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -*/
