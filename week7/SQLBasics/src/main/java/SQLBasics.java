@@ -119,21 +119,22 @@ WHERE CustomerId = '1';
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
     SQL Two, Relational Databases (which SQL is)
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
-
-Sort these:
-student - (academic) record
-teacher - student
-student - teacher (what's the difference)
-doctor - patient
-parent - child
-customer - work_order
-customer - insurance_info
-
 One to One:
 "has a"
+student has a record
+customer has insurance info.
 
 One to Many:
 "has many"
+teacher has many students         
+doctor has many patients          0 ... *
+parent has (one or) many children 1 ... *
+customer has many work orders
+
+Many to Many:
+Student has many teachers (and vice versa)
+Many Parents may have many children
+Many Parents may have many pets
 
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
         Primary Key and Foreign Key (SQL: PRIMARY KEY)
@@ -145,13 +146,20 @@ CREATE TABLE teachers
     last_name TEXT,
 )
 
+(another way to map)
+CREATE TABLE students_to_teachers
+(
+    teacher_id INT,
+    student_id INT
+)
+
 CREATE TABLE students
 (
 	student_id INT PRIMARY KEY,
 	first_name TEXT,
 	last_name TEXT,
 	gpa REAL,
-	teacher_id INT
+	--teacher_id INT        -- Foreign ID (for their teacher (in a 1:* relation))
 );
 
 
@@ -188,7 +196,7 @@ public static String studentsAsSQL(){
         for (String[] strings : studentNames) {
             String firstName = strings[0];
             String lastName = strings[1];
-            double gpa = ((int) (Math.random()*5000.0))/1000.0;
+            double gpa = ((int) (Math.random()*3000.0))/1000.0 + 2.0;
             int teacher_id = (int)(Math.random()*2);
             sqlSB.append("INSERT INTO students\n" +
                         "VALUES(" + id++ + "," +
@@ -209,11 +217,11 @@ public static String studentsAsSQL(){
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
 Before Joins:
 
-SELECT * FROM students, teachers
-WHERE students.teacher_id = teachers.teacher_id
-ORDER BY 
-	teachers.first_name ASC, 
-	students.first_name ASC;
+SELECT s.first_name, s.last_name, s.gpa,
+t.first_name, t.last_name 
+FROM students AS s, teachers AS t -- SQL looks here first (for alias')
+WHERE s.teacher_id = t.teacher_id
+ORDER BY t.first_name, s.first_name;
 
 As a join:
 
