@@ -191,21 +191,42 @@ public static String studentsAsSQL(){
 
 /*
 
+
+
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
-        Foreign Key
+        JOINS
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
+Before Joins:
+
+SELECT * FROM students, teachers
+WHERE students.teacher_id = teachers.teacher_id
+ORDER BY 
+	teachers.first_name ASC, 
+	students.first_name ASC;
+
+As a join:
+
+SELECT * FROM students
+JOIN teachers
+ON teachers.teacher_id = students.teacher_id
+ORDER BY 
+	teachers.first_name ASC, 
+	students.first_name ASC;
 
 
-
+-- Using chinook.db
 
 SELECT * FROM artists, albums, tracks, genres
 WHERE artists.ArtistId = albums.AlbumId
 AND albums.AlbumId = tracks.AlbumId
 AND tracks.GenreId = genres.GenreId;
 
-SELECT DISTINCT artists.Name as BandName, a.Title as AlbumName, g.Name as Genre
+SELECT DISTINCT 
+    artists.Name,
+    albums.Title,
+    g.Name
 FROM artists
-JOIN albums as a
+JOIN albums
 ON a.ArtistId=artists.ArtistId
 JOIN tracks as t
 ON a.AlbumId=t.AlbumId
@@ -213,7 +234,8 @@ JOIN genres as g
 ON t.GenreId=g.GenreId
 ORDER BY AlbumName;
 
-
+What about Inner, Left, Right and Full?
+Diagram: join_venn_diagram swiped from: https://www.dataquest.io/blog/sql-joins-tutorial/
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -
 End of SQL Comments
 ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ - ~ -*/
