@@ -19,7 +19,7 @@ class HelloControllerAcceptanceTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @WithMockUser
+    // With a Mock User maybe?
     @Test
     void shouldGreetDefault() throws Exception {
         mockMvc.perform(get("/hello"))
@@ -28,7 +28,6 @@ class HelloControllerAcceptanceTest {
                 .andExpect(content().string(containsString("Hello World")));
     }
 
-    @WithMockUser
     @Test
     void shouldGreetByName() throws Exception {
         String greetingName = "Jamie";
