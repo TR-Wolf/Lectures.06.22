@@ -1,0 +1,10 @@
+2022-08-09 17:10:51.984-  INFO --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 16894 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+2022-08-09 17:10:51.988-  INFO --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-09 17:10:54.428-  INFO --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.09 seconds (JVM running for 3.861)
+2022-08-09 17:10:54.847-  INFO --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
+2022-08-09 17:10:57.336-  INFO --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
+2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 16949 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 2.922 seconds (JVM running for 3.748)
+2022-08-09 17:12 [  INFO] --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
+2022-08-09 17:13 [  INFO] --- [http-nio-8080-exec-10] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
