@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping // How to use this... (will come up during Oauths)
+@RequestMapping("/helloAPI") // How to use this... (will come up during Oauths)
 public class HelloController {
 
     @GetMapping("/hello")
     public String hello(@RequestParam(name = "targetName", defaultValue = "World") String name) {
-        String apiExtension = "";//""/helloAPI";
+        String apiExtension = "/helloAPI";
         return String.format("<h1>Hello User Web Page</h1>" +
                 "<h3>A kind hello to %s, and to you a good day.</h3>" +
                         "<p><a href=\"/login\">Login Page</p>" +
@@ -22,7 +22,7 @@ public class HelloController {
 
     @GetMapping("/status")
     public String status() {
-        String apiExtension = "";//""/helloAPI";
+        String apiExtension = "/helloAPI";
         return "<h1>Congratulations</h1>" +
                 "<h3>You must be an admin since you can see the application's status information</h3>" +
                 "<p>" +
