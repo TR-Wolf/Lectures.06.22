@@ -11,7 +11,7 @@
     <appender name="File-Appender" class="ch.qos.logback.core.FileAppender">
         <file>logbackBitcoinQueries.log</file>
         <encoder>
-            <pattern>%date{yyyy-MM-dd HH:mm} [%6level] --- [%thread] %-40.40logger{39} : %msg%n</pattern>
+            <pattern>%date{dd-MM-yyyy HH:mm} [%6level] --- [%thread] %-40.40logger{39} : %msg%n</pattern>
         </encoder>
     </appender>
     <root level="INFO">

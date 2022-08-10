@@ -2,6 +2,7 @@ package com.example.Logging.controllers;
 
 import com.example.Logging.dto.BitcoinDTO;
 import com.example.Logging.services.BitcoinService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
+@Slf4j
 public class HelloController {
 
     //
@@ -21,7 +23,7 @@ public class HelloController {
     // 0. Prior to adding a logger in... is Spring using loggers?
 
     // 1. Create a logger
-//    Logger logger = LoggerFactory.getLogger(HelloController.class);
+    Logger logger = LoggerFactory.getLogger(HelloController.class);
 
 
     @Autowired
@@ -29,10 +31,8 @@ public class HelloController {
 
     @GetMapping("/bitcoin")
     public String coin() {
-
-        String logString = "Bitcoin endpoint has been called.";
-        System.out.println(logString); // I do not want to do this anymore
-        //.... put code here
+        log.trace("Bitcoin Endpoint Request Begins.");
+        log.info("Bitcoin endpoint requested.");
         // 2. What did this do? why?
 
 
@@ -44,21 +44,26 @@ public class HelloController {
         // Check out different log styles and then add a few of each.
 
         StringBuilder coinPage = new StringBuilder();
+        log.trace("Calling API.");
         BitcoinDTO data = bitcoinService.getBitcoinData();
 
+        log.trace("Generating html");
         coinPage.append("<html>\n");
 
         // Do we like it when this happens?
         if (data != null) {
+            log.trace("API Request succeeded, generating HTML successfully");
             coinPage.append("<h1>" + "Coin Name: " + data.getName() + "</h1>\n");
             coinPage.append("<h2>" + "Symbol: " + data.getSymbol() + "</h2>\n");
             coinPage.append("<p>" + "Price USD: " + data.getPriceUsd() + "</p>\n");
             coinPage.append("<p>" + "Market Cap USD: " + data.getMarketCapUsd() + "</p>\n");
             coinPage.append("<p>" + "Rank: " + data.getRank() + "</p>\n");
         } else {
-            coinPage.append("<h1> Error: Could not access API</h1>");
+            log.warn("Data recieved from api is null.");
+            coinPage.append("<h1>Could not access API</h1>");
         }
         coinPage.append("</html>\n");
+        log.trace("Done generating html. Returning html.");
 
         return coinPage.toString();
     }
@@ -84,7 +89,8 @@ public class HelloController {
     // WARN:  | Indicate that non-fatal problem occurred
     /////////|| not expected to be used frequently.
     /////////||
-    // ERROR: | There is an issue that is preventing the application from performing one of its functions.
+    // ERROR: | There is an issue that is preventing the application
+    //        | from performing one of its functions.
     /////////||
 
 

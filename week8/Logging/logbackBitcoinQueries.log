@@ -1,10 +1,29 @@
-2022-08-09 17:10:51.984-  INFO --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 16894 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
-2022-08-09 17:10:51.988-  INFO --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-08-09 17:10:54.428-  INFO --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.09 seconds (JVM running for 3.861)
-2022-08-09 17:10:54.847-  INFO --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
-2022-08-09 17:10:57.336-  INFO --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
-2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 16949 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
-2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-08-09 17:12 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 2.922 seconds (JVM running for 3.748)
-2022-08-09 17:12 [  INFO] --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
-2022-08-09 17:13 [  INFO] --- [http-nio-8080-exec-10] c.e.Logging.controllers.HelloController  : Bitcoin endpoint has been called.
+2022-08-10 08:13 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 24053 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+2022-08-10 08:13 [  INFO] --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 08:13 [  INFO] --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-10 08:13 [  INFO] --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 08:13 [  INFO] --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-10 08:13 [  INFO] --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 08:13 [  INFO] --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1976 ms
+2022-08-10 08:13 [  INFO] --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-08-10 08:13 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.792 seconds (JVM running for 4.654)
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:13 [  INFO] --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+10-08-2022 08:16 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 24211 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+10-08-2022 08:16 [  INFO] --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+10-08-2022 08:16 [  INFO] --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+10-08-2022 08:16 [  INFO] --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10-08-2022 08:16 [  INFO] --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+10-08-2022 08:16 [  INFO] --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+10-08-2022 08:16 [  INFO] --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1548 ms
+10-08-2022 08:16 [  INFO] --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+10-08-2022 08:16 [  INFO] --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.258 seconds (JVM running for 4.111)
+10-08-2022 08:17 [  INFO] --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10-08-2022 08:17 [  INFO] --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10-08-2022 08:17 [  INFO] --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+10-08-2022 08:17 [  INFO] --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+10-08-2022 08:17 [  INFO] --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.

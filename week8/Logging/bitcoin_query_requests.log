@@ -1,0 +1,50 @@
+2022-08-10 08:06:16.129  INFO 23878 --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 23878 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+2022-08-10 08:06:16.133 DEBUG 23878 --- [main] com.example.Logging.LoggingApplication   : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-08-10 08:06:16.135  INFO 23878 --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 08:06:19.025  INFO 23878 --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.804 seconds (JVM running for 4.555)
+2022-08-10 08:06:19.493 TRACE 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:06:19.494  INFO 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:06:19.494 TRACE 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:06:20.263 ERROR 23878 --- [http-nio-8080-exec-1] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:06:20.279 TRACE 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:06:20.280  WARN 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:06:20.281 TRACE 23878 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
+2022-08-10 08:06:22.117 TRACE 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:06:22.119  INFO 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:06:22.120 TRACE 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:06:22.314 ERROR 23878 --- [http-nio-8080-exec-2] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:06:22.328 TRACE 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:06:22.328  WARN 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:06:22.331 TRACE 23878 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
+2022-08-10 08:06:25.028 TRACE 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:06:25.031  INFO 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:06:25.031 TRACE 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:06:25.221 ERROR 23878 --- [http-nio-8080-exec-4] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:06:25.222 TRACE 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:06:25.223  WARN 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:06:25.223 TRACE 23878 --- [http-nio-8080-exec-4] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
+2022-08-10 08:06:47.628 TRACE 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:06:47.638  INFO 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:06:47.650 TRACE 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:06:47.981 ERROR 23878 --- [http-nio-8080-exec-3] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:06:47.982 TRACE 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:06:47.982  WARN 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:06:47.982 TRACE 23878 --- [http-nio-8080-exec-3] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
+2022-08-10 08:07:40.809  INFO 23903 --- [main] com.example.Logging.LoggingApplication   : Starting LoggingApplication using Java 18.0.1.1 on Thomass-MacBook-Pro.local with PID 23903 (/Users/wolf/Documents/Lectures.06.22/week8/Logging/target/classes started by wolf in /Users/wolf/Documents/Lectures.06.22/week8/Logging)
+2022-08-10 08:07:40.819 DEBUG 23903 --- [main] com.example.Logging.LoggingApplication   : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-08-10 08:07:40.823  INFO 23903 --- [main] com.example.Logging.LoggingApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 08:07:43.760  INFO 23903 --- [main] com.example.Logging.LoggingApplication   : Started LoggingApplication in 3.612 seconds (JVM running for 4.211)
+2022-08-10 08:07:57.671 TRACE 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:07:57.672  INFO 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:07:57.672 TRACE 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:07:58.452 ERROR 23903 --- [http-nio-8080-exec-1] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:07:58.453 TRACE 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:07:58.453  WARN 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:07:58.453 TRACE 23903 --- [http-nio-8080-exec-1] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
+2022-08-10 08:08:01.906 TRACE 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin Endpoint Request Begins.
+2022-08-10 08:08:01.914  INFO 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Bitcoin endpoint requested.
+2022-08-10 08:08:01.915 TRACE 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Calling API.
+2022-08-10 08:08:02.097 ERROR 23903 --- [http-nio-8080-exec-2] c.e.Logging.services.BitcoinService      : API FAILED TO GET DATA
+2022-08-10 08:08:02.107 TRACE 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Generating html
+2022-08-10 08:08:02.108  WARN 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Data recieved from api is null.
+2022-08-10 08:08:02.111 TRACE 23903 --- [http-nio-8080-exec-2] c.e.Logging.controllers.HelloController  : Done generating html. Returning html.
