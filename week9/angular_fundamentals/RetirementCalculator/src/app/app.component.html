@@ -1,0 +1,9 @@
+<app-navigation-menu [answer]="getAnswer()"></app-navigation-menu>
+<div class="calculator">
+  <h1 class="calculator-header">Retirement Calculator</h1>
+  <label class="calculator-label">How much do you spend a month?
+    <input type="number" [(ngModel)]="monthlyExpenses"></label>
+  <label class="calculator-label">How much do you earn a month (Social Security, annuities, etc)?
+    <input type="number" [(ngModel)]="monthlyIncome"></label>
+  <label class="answer">You need to have {{getAnswer()}} dollars in your 401k.</label>
+</div>
